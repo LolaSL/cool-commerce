@@ -16,3 +16,53 @@ header a {
   text-decoration: none;
   font-weight: bold;
 }
+main {
+  padding: 1rem;
+}
+
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.product {
+  border: 1px #404040 solid;
+  margin: 1rem;
+  width: 380px; /* Fixed width for uniformity */
+  overflow: hidden; /* Ensure no overflow from the container */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product img {
+  width: 100%;
+  height: auto; /* Ensure the image maintains its aspect ratio */
+  object-fit: cover; /* Ensures the image covers the area */
+}
+
+.product-info {
+  padding: 1rem;
+  text-align: center;
+  color: black;
+}
+
+.product-info p {
+  margin: 0.5rem 0; /* Add some margin for spacing */
+}
+.product-info a {
+  text-decoration: none;
+}
+button {
+  padding: 0.5rem 1rem;
+  background-color: #404040;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  border-radius: 9px;
+}
+
+button:hover {
+  background-color: #303030;
+}
