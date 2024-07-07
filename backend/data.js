@@ -1,6 +1,23 @@
+import bcrypt from 'bcryptjs';
+
 const data = {
+    users: [
+        {
+            name: 'Lola',
+            email: 'admin_unique@example.com',
+            password: bcrypt.hashSync('1223334444'),
+            isAdmin: true,
+        },
+        {
+            name: 'Jane',
+            email: 'user_doe@example.com',
+            password: bcrypt.hashSync('123456'),
+            isAdmin: false,
+        },
+    ],
     products: [
         {
+
             name: "10.000 BTU Window Air Conditioner",
             slug: "btu-dual-inverter-air-conditioner",
             category: "Window Air Conditioner",
@@ -14,6 +31,7 @@ const data = {
 
         },
         {
+
             name: "8.000 BTU Window Air Conditioner",
             slug: "btu-window-air-conditioner",
             category: "Window Air Conditioner",
@@ -27,6 +45,7 @@ const data = {
 
         },
         {
+
             name: "12.000 BTU Window Air Conditioner",
             slug: "btu-dual-inverter-smart-air-conditioner",
             category: "Window Air Conditioner",
@@ -40,12 +59,13 @@ const data = {
 
         },
         {
+
             name: "6.000 BTU Portable Air Conditioner",
             slug: "btu-portable-air-conditioner",
             category: "Portable Air Conditioner",
             image: "/images/p4.jpg",
             price: 329,
-            countInStock: 6,
+            countInStock: 2,
             brand: "LG",
             rating: 3.9,
             numReviews: 13,
@@ -53,4 +73,5 @@ const data = {
         }
     ]
 }
+
 export default data;

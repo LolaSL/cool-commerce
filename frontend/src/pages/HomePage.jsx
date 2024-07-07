@@ -5,7 +5,9 @@ import logger from "use-reducer-logger";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Product from "../components/Product.jsx";
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from "react-helmet-async";
+import LoadingBox from "../components/LoadingBox.jsx";
+import MessageBox from "../components/MessageBox.jsx";
 
 
 
@@ -38,7 +40,6 @@ const HomePage = () => {
       } catch (err) {
         dispatch({ type: "FETCH_FAIL", payload: err.message });
       }
-
     };
     fetchData();
   }, []);
@@ -47,32 +48,35 @@ const HomePage = () => {
     <div>
       <article className="py-4 mb-4">
         <Helmet>
-     <title> Cool Commerce</title>
+          <title> Cool Commerce</title>
         </Helmet>
         <h1 className="text-center pt-4 mb-4 fw-bold">Featured Products</h1>
         <p className="py-2 mb-2">
-          Introducing our latest line of air conditioning units, meticulously engineered to provide unparalleled cooling perfomance, energy efficiency.
+          Introducing our latest line of air conditioning units, meticulously
+          engineered to provide unparalleled cooling perfomance, energy
+          efficiency.
         </p>
+        <p>Designed for your comfort.</p>
         <p>
-          Designed for your comfort.
-        </p>
-        <p>
-        Maximize the comfort of your dwelling, office, condominium, or villa with our advanced air systems.
+          Maximize the comfort of your dwelling, office, condominium, or villa
+          with our advanced air systems.
         </p>
       </article>
       <div className="products">
         {loading ? (
-          <div>Loading...</div>
+          <LoadingBox />
         ) : error ? (
-          <div>{error}</div>
-        ) : (
+          <MessageBox variant="danger">{error}</MessageBox>
+          ) : (
+              <div>
           <Row>
             {products.map((product) => (
               <Col key={product.slug} xs={12} md={4} lg={3} className="mb-3">
                 <Product product={product}></Product>
               </Col>
             ))}
-          </Row>
+                </Row>
+              </div>
         )}
       </div>
     </div>
