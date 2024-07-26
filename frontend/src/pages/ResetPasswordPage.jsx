@@ -9,7 +9,7 @@ import { toast } from 'react-toastify';
 import { Store } from '../Store';
 import { getError } from '../utils';
 
-export default function ResetPasswordScreen() {
+export default function ResetPasswordPage() {
   const navigate = useNavigate();
   const { token } = useParams();
 

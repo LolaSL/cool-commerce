@@ -15,7 +15,7 @@ import MessageBox from "../components/MessageBox";
 import { getError } from "../utils";
 import { Store } from "../Store";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -70,10 +70,7 @@ function ProductPage() {
   }, [slug]);
 
   const { state, dispatch: ctxDispatch } = useContext(Store);
-  const {
-    cart,
-    userInfo
-  } = state;
+  const { cart, userInfo } = state;
 
   const addToCartHandler = async () => {
     const existItem = cart.cartItems.find((x) => x._id === product._id);
@@ -93,7 +90,7 @@ function ProductPage() {
   const submitHandler = async (e) => {
     e.preventDefault();
     if (!comment || !rating) {
-      toast.error('Please enter comment and rating');
+      toast.error("Please enter comment and rating");
       return;
     }
     try {
@@ -106,20 +103,20 @@ function ProductPage() {
       );
 
       dispatch({
-        type: 'CREATE_SUCCESS',
+        type: "CREATE_SUCCESS",
       });
-      toast.success('Review submitted successfully');
+      toast.success("Review submitted successfully");
       product.reviews.unshift(data.review);
       product.numReviews = data.numReviews;
       product.rating = data.rating;
-      dispatch({ type: 'REFRESH_PRODUCT', payload: product });
+      dispatch({ type: "REFRESH_PRODUCT", payload: product });
       window.scrollTo({
-        behavior: 'smooth',
+        behavior: "smooth",
         top: reviewsRef.current.offsetTop,
       });
     } catch (error) {
       toast.error(getError(error));
-      dispatch({ type: 'CREATE_FAIL' });
+      dispatch({ type: "CREATE_FAIL" });
     }
   };
 
@@ -154,7 +151,7 @@ function ProductPage() {
             <ListGroup.Item>Pirce : ${product.price}</ListGroup.Item>
             <ListGroup.Item>
               <Row xs={1} md={2} className="g-2">
-              {[product.image, ...product.images || []].map((x) => (
+                {[product.image, ...(product.images || [])].map((x) => (
                   <Col key={x}>
                     <Card>
                       <Button
@@ -180,6 +177,14 @@ function ProductPage() {
           <Card>
             <Card.Body>
               <ListGroup variant="flush">
+                <ListGroup.Item>
+                  <Row>
+                    <Col>Brand:</Col>
+                    <Col>
+                      <p>{product.brand}</p>
+                    </Col>{" "}
+                  </Row>
+                </ListGroup.Item>
                 <ListGroup.Item>
                   <Row>
                     <Col>Price:</Col>
@@ -216,12 +221,12 @@ function ProductPage() {
       <div className="my-3">
         <h2 ref={reviewsRef}>Reviews</h2>
         <div className="mb-3">
-          {product.reviews && product.reviews.length === 0 && (
-            <MessageBox>There is no review</MessageBox>
+          {product.reviews.length === 0 && (
+            <MessageBox>No review found</MessageBox>
           )}
         </div>
         <ListGroup>
-          {product.reviews && product.reviews.map((review) => (
+          {product.reviews.map((review) => (
             <ListGroup.Item key={review._id}>
               <strong>{review.name}</strong>
               <Rating rating={review.rating} caption=" "></Rating>
@@ -236,8 +241,8 @@ function ProductPage() {
               <h2>Write a customer review</h2>
               <Form.Group className="mb-3" controlId="rating">
                 <Form.Label>Rating</Form.Label>
-                <Form.Select
-                  aria-label="Rating"
+                <Form.Control
+                  as="select"
                   value={rating}
                   onChange={(e) => setRating(e.target.value)}
                 >
@@ -247,7 +252,7 @@ function ProductPage() {
                   <option value="3">3- Good</option>
                   <option value="4">4- Very good</option>
                   <option value="5">5- Excelent</option>
-                </Form.Select>
+                </Form.Control>
               </Form.Group>
               <FloatingLabel
                 controlId="floatingTextarea"
@@ -266,7 +271,7 @@ function ProductPage() {
                 <Button disabled={loadingCreateReview} type="submit">
                   Submit
                 </Button>
-                {loadingCreateReview && <LoadingBox></LoadingBox>}
+                {loadingCreateReview && <LoadingBox />}
               </div>
             </form>
           ) : (
@@ -274,14 +279,14 @@ function ProductPage() {
               Please{" "}
               <Link to={`/signin?redirect=/product/${product.slug}`}>
                 Sign In
-
-            </Link>{" "}
-            to write a review
-          </MessageBox>
-          ) } 
+              </Link>{" "}
+              to write a review
+            </MessageBox>
+          )}
         </div>
       </div>
     </div>
   );
 }
+
 export default ProductPage;
