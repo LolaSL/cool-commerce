@@ -1,7 +1,7 @@
 import React, { useReducer } from "react";
 import { useEffect } from "react";
 import axios from "axios";
-import logger from "use-reducer-logger";
+// import logger from "use-reducer-logger";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Product from "../components/Product.jsx";
@@ -26,7 +26,9 @@ const reducer = (state, action) => {
 };
 
 const HomePage = () => {
-  const [{ loading, error, products }, dispatch] = useReducer(logger(reducer), {
+  const [{ loading, error, products }, dispatch] = useReducer(
+    // logger
+      (reducer), {
     products: [],
     loading: true,
     error: "",

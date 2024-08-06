@@ -65,7 +65,7 @@ const data = {
             description: "12.000 BTU, Estimated Cooling Area 550 sq. ft., 115 Volt, ENERGY STAR Certified, Window Installation Kit, Slide-Out Washable Filter & Filter Alert, 3 Fan Speed Cooling.",
             features: "Wi-Fi",
             btu: 12000,
-            areaCoverage: 550,
+            areaCoverage: 550, 
             energyEfficiency: 10
 
         },

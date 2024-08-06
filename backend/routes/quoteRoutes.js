@@ -1,3 +1,4 @@
+
 import express from 'express';
 import expressAsyncHandler from 'express-async-handler';
 import Product from '../models/productModel.js';
@@ -31,7 +32,7 @@ quoteRouter.post(
       const numericEnergyEfficiency = parseFloat(energyEfficiency);
 
       const query = {
-        areaCoverage: { $gte:  areaCoverage * 0.8, $lte:  areaCoverage * 1.2 },
+        areaCoverage: { $gte: areaCoverage * 0.8, $lte: areaCoverage * 1.2 },
         features: { $all: features },
         price: { $lte: numericPrice },
         btu: { $gte: numericBtu },
@@ -57,8 +58,3 @@ quoteRouter.post(
 );
 
 export default quoteRouter;
-
-
-
-
-

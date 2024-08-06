@@ -15,7 +15,7 @@ const AirConditioningPage = () => {
           <img
             src="/images/ac9.jpg"
             alt="Air Conditioners types"
-            className="responsive-image"
+            className="responsive"
           />
         </div>
         <ul className="ac-types">
@@ -136,7 +136,7 @@ const AirConditioningPage = () => {
           <img
             src="/images/ac2.jpg"
             alt="Air Conditioners work"
-            className="responsive-image"
+            className="responsive"
           />
         </div>
         <p className="ac-conditioning">
@@ -208,7 +208,7 @@ const AirConditioningPage = () => {
           <img
             src="/images/ac4.jpeg"
             alt="Air Conditioners work"
-            className="responsive-image"
+            className="responsive"
           />
         </div>
         <p className="ac-conditioning">

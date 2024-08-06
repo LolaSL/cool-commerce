@@ -129,9 +129,9 @@ function ProductPage() {
       <Row>
         <Col md={6}>
           <img
-            className="img"
+            className="responsive"
             src={selectedImage || product.image}
-            alt={product.name}
+                alt={product.name}
           ></img>
         </Col>
         <Col md={3}>

@@ -17,7 +17,7 @@ export default function Header() {
         <div className="mask">
           <div className="d-flex justify-content-center align-items-center  h-100">
             <div className="text-white">
-              <h1 className="mb-3">Featured Products</h1>
+              <h1 className="mb-3 hero-title">Featured Products</h1>
               <p className="mb-2 featured-products">
                 {" "}
                 engineered to provide unparalleled cooling perfomance, energy

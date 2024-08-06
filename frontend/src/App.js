@@ -36,13 +36,15 @@ import UserEditPage from './pages/UserEditPage.jsx';
 import MapPage from './pages/MapPage.jsx';
 import ForgetPasswordPage from './pages/ForgetPasswordPage.jsx';
 import ResetPasswordPage from './pages/ResetPasswordPage.jsx';
-import SellerPage from './pages/SellerPage.jsx'
+import SellerPage from './pages/SellerPage.jsx';
 import SellersPage from './pages/SellersPage.jsx';
-import FeaturedPage from './pages/FeaturedPage.jsx'
+import FeaturedPage from './pages/FeaturedPage.jsx';
 import SellerEditPage from './pages/SellerEditPage.jsx';
 import SellersListPage from './pages/SellersListPage.jsx';
-import AirConditioningPage from './pages/AirConditioningPage.jsx'
-import GetQuotePage from './pages/GetQoutePage.jsx';
+import AirConditioningPage from './pages/AirConditioningPage.jsx';
+import GetQoutePage from './pages/GetQoutePage.jsx';
+import ContactPage from './pages/ContactPage.jsx';
+import DesignPage from './pages/DesignPage.jsx';
 
 
 function App() {
@@ -170,6 +172,7 @@ function App() {
               <Nav.Item key={category}>
                 <LinkContainer
                   to={{ pathname: '/search', search: `category=${category}` }}
+
                   onClick={() => setSidebarIsOpen(false)}
                 >
                   <Nav.Link>{category}</Nav.Link>
@@ -269,7 +272,7 @@ function App() {
                   </AdminRoute>
                 }
               ></Route>
-                 <Route
+              <Route
                 path="/admin/sellers"
                 element={
                   <AdminRoute>
@@ -293,7 +296,7 @@ function App() {
                   </AdminRoute>
                 }
               ></Route>
-                  <Route
+              <Route
                 path="/admin/sellers/:id"
                 element={
                   <AdminRoute>
@@ -305,7 +308,9 @@ function App() {
               <Route path="/sellers/:id" element={<SellerPage />} />
               <Route path="/sellers/edit/:id" element={<SellerEditPage />} />
               <Route path="/air-conditioning" element={<AirConditioningPage />} />
-              <Route path="/quote" element={<GetQuotePage/>} />
+              <Route path="/quote" element={<GetQoutePage />} />
+              <Route path="/design" element={<DesignPage />} />
+              <Route path="/contact" element={<ContactPage />} />
               <Route path="/" element={<HomePage />} />
             </Routes>
           </Container>

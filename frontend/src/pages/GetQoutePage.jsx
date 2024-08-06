@@ -4,7 +4,9 @@ import { toast } from "react-toastify";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
+
 const GetQuote = () => {
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -47,6 +49,8 @@ const GetQuote = () => {
         : [...prevFeatures, feature]
     );
   };
+
+
 
   return (
     <div>
@@ -170,7 +174,7 @@ const GetQuote = () => {
             required
           />
         </Form.Group>
-        <Button type="submit" className="mt-4 mb-4">
+        <Button type="submit" className="mt-4 mb-4" >
           Get Quote
         </Button>
       </Form>
@@ -180,6 +184,13 @@ const GetQuote = () => {
           <ul>
             {results.map((product) => (
               <li key={product._id} className="text-success fw-bold">
+                <img
+                  src={product.image}
+                  alt={`${product.brand} ${product.category}`}
+                  width="100"
+                  height="100"
+                  className="me-2 "
+                />
                 {product.brand} {product.category} - ${product.price} -{" "}
                 {product.btu} BTU
               </li>

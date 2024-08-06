@@ -63,7 +63,7 @@ export default function SellersPage() {
         <div>
           {sellers.map((seller) => (
             <div key={seller._id}>
-             <Link to={`/sellers/${seller._id}`}><h2>{seller.name}</h2></Link>
+             <Link to={`/sellers/${seller._id}`} className="seller-name text-secondary"><h2 >{seller.name}</h2></Link>
               <p>Brand: {seller.brand}</p>
               <p>Information: {seller.info}</p>
               <div>
