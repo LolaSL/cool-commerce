@@ -7,8 +7,8 @@ const designSchema = new mongoose.Schema({
     floorNumber: { type: String, required: true },
     directionOfVentilation: [{ type:  String, required: true }],
     numberOfRooms: { type: Number, required: true },
-    roomArea: { type: [Number], required: true },//qt. meters
-    file: { type: String },//pdf/jpg
+    roomArea: { type: [Number], required: true },
+    file: { type: String },
 
 }, {
     timestamps: true,
